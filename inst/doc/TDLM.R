@@ -46,6 +46,8 @@ Dj <- as.numeric(mass[,3])
 names(Dj) <- rownames(mass)
 
 ## -----------------------------------------------------------------------------
+library(sf)
+
 data(county)
 
 county[1:10,]

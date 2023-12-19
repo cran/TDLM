@@ -54,8 +54,8 @@ extract_spatial_information <- function(geometry,
   }
   crs <- sf::st_crs(geometry)
   if (is.na(crs)) {
-    stop("Not possible to identify the coordinate reference system of geometry.",
-      call. = FALSE
+    stop("Not possible to identify the coordinate reference system of geometry."
+         , call. = FALSE
     )
   }
 
@@ -152,21 +152,21 @@ extract_spatial_information <- function(geometry,
   # Extract distances
   if (show_progress) {
     pb <- utils::txtProgressBar(min = 0, max = dim(lonlat)[1], style = 3)
-    distance <- NULL
-    for (k in 1:dim(lonlat)[1]) {
+    distance <- lapply(1:dim(lonlat)[1], function(k){
       utils::setTxtProgressBar(pb, k)
       lonk <- lonlat[k, 1]
       latk <- lonlat[k, 2]
-      distance <- rbind(distance, haversine(lonk, latk, lon, lat))
-    }
+      haversine(lonk, latk, lon, lat)
+    })
+    distance <- do.call(rbind, distance)
     close(pb)
   } else {
-    distance <- NULL
-    for (k in 1:dim(lonlat)[1]) {
+    distance <- lapply(1:dim(lonlat)[1], function(k){
       lonk <- lonlat[k, 1]
       latk <- lonlat[k, 2]
-      distance <- rbind(distance, haversine(lonk, latk, lon, lat))
-    }
+      haversine(lonk, latk, lon, lat)
+    }) 
+    distance <- do.call(rbind, distance)
   }
 
   # Extract surface area

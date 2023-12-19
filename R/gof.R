@@ -30,8 +30,8 @@
 #'
 #' @details
 #' \loadmathjax
-#' With \mjeqn{n}{n} the number of locations, \mjeqn{T_{ij}}{T_{ij}} the observed
-#' flow between location \mjeqn{i}{i} and location \mjeqn{j}{j}
+#' With \mjeqn{n}{n} the number of locations, \mjeqn{T_{ij}}{T_{ij}} the 
+#' observed flow between location \mjeqn{i}{i} and location \mjeqn{j}{j}
 #' (argument `obs`), \mjeqn{\tilde{T}_{ij}}{\tilde{T}_{ij}} a simulated flow
 #' between location \mjeqn{i}{i} and location \mjeqn{j}{j} (a matrix from
 #' argument `sim`), \mjeqn{N=\sum_{i,j=1}^n T_{ij}}{N=\sum_{i,j=1}^n T_{ij}} the
@@ -151,7 +151,7 @@ gof <- function(sim, obs, measures = "all", distance = NULL, bin_size = 2,
   controls(args = measures, type = "character_vector")
   if (sum(metrics %in% lsm) < length(metrics)) {
     stop("One or several goodness-of-fit measure(s) chosen is not available.
-     Please chose among the followings:
+     Please choose among the followings:
          CPC, CPL, NRMSE, KL, CPC_d or KS")
   }
   controls(args = check_names, type = "boolean")
@@ -324,7 +324,7 @@ gof <- function(sim, obs, measures = "all", distance = NULL, bin_size = 2,
         )
       }
       if (is.null(names(sim))) {
-        names(sim) <- paste0("sim_", 1:length(sim))
+        names(sim) <- paste0("sim_", seq_len(length(sim)))
         message(paste0(
           "No names identified in the list of matrices.\n",
           "Names have been automatically assigned.\n"
