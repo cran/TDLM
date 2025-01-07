@@ -1,27 +1,28 @@
-# __TDLM__ <img src="man/figures/logo.png" align="right" alt="" width="200" />
+# __TDLM__ <img src="man/figures/logo.png" align="right" alt="" width="138" />
 
 # Systematic comparison of trip distribution laws and models 
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/EpiVec/TDLM/workflows/R-CMD-check/badge.svg)](https://github.com/EpiVec/TDLM/actions)
 [![Codecov test coverage](https://codecov.io/gh/EpiVec/TDLM/branch/master/graph/badge.svg)](https://app.codecov.io/gh/EpiVec/TDLM?branch=master)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/TDLM)](https://cran.r-project.org/package=TDLM)
-[![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/grand-total/TDLM)](https://r-pkg.org:443/pkg/TDLM)  
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/TDLM)](https://cran.r-project.org/package=TDLM)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/TDLM)](https://r-pkg.org:443/pkg/TDLM)  
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.05434/status.svg)](https://doi.org/10.21105/joss.05434)
 <!-- badges: end -->
 
 ## 1 Short description
 
-The main purpose of the `TDLM`'s package is to propose a rigorous framework to 
-fairly compare trip distribution laws and models as described in 
-[Lenormand et al. (2016)](https://www.sciencedirect.com/science/article/abs/pii/S0966692315002422). 
-This general framework is based on a two-step approach to generate mobility flows
-by separating the trip distribution law, gravity or intervening opportunities, from 
-the modeling approach used to generate the flows from this law.
+The main purpose of the `TDLM` package is to provide a rigorous framework for 
+fairly comparing trip distribution laws and models, as described in 
+[Lenormand *et al.* (2016)](https://doi.org/10.1016/j.jtrangeo.2015.12.008). 
+This general framework relies on a two-step approach to generate mobility flows,
+separating the trip distribution law, gravity or intervening opportunities, from
+the modeling approach used to derive flows from this law.
+
 
 ## 2 Install
 
-The package `TDLM` can be installed with the following command line in R session:
+The `TDLM` package can be installed with the following command in an R session:
 
 From the CRAN
 

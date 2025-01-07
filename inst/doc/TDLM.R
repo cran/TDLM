@@ -16,14 +16,14 @@ options(tinytex.verbose = TRUE)
 ## -----------------------------------------------------------------------------
 data(od)
 
-od[1:10, 1:10]
+od[1:5, 1:5]
 
 dim(od)
 
 ## -----------------------------------------------------------------------------
 data(distance)
 
-distance[1:10, 1:10]
+distance[1:5, 1:5]
 
 dim(distance)
 
@@ -46,6 +46,11 @@ Dj <- as.numeric(mass[,3])
 names(Dj) <- rownames(mass)
 
 ## -----------------------------------------------------------------------------
+check_format_names(vectors = list(mi = mi, mj = mj, Oi = Oi, Dj = Dj),
+                   matrices = list(od = od, distance = distance),
+                   check = "format_and_names")
+
+## -----------------------------------------------------------------------------
 library(sf)
 
 data(county)
@@ -55,25 +60,50 @@ county[1:10,]
 plot(county)
 
 ## -----------------------------------------------------------------------------
-check_format_names(vectors = list(mi = mi, mj = mj, Oi = Oi, Dj = Dj),
-                   matrices = list(od = od, distance = distance),
-                   check = "format_and_names")
+coords[1:10,]
+
+coords_xy[1:10,]
 
 ## -----------------------------------------------------------------------------
-spi <- extract_spatial_information(county, id = "ID")
+haversine_d <- extract_distances(coords = coords,
+                                 method = "Haversine")
+haversine_d[1:5, 1:5]
 
-distance2 <- spi$distance
-
-distance2[1:10, 1:10]
+distance[1:5, 1:5]
 
 ## -----------------------------------------------------------------------------
-mean(spi$surface)
+xy_d <- extract_distances(coords = coords_xy,
+                          method = "Euclidean")
+
+oldmar <- par()$mar
+par(mar = c(4.5, 6, 1, 1))
+plot(haversine_d, xy_d, xlim=c(0,900), ylim=c(0,900),
+     type="p", pch=16, cex=2, lty=1, lwd=3, 
+     col="steelblue3", axes=FALSE, xlab="", ylab="")
+axis(1, cex.axis=1.2)
+axis(2, cex.axis=1.2, las=1)
+mtext("Haversine (km)", 1, line = 3.25, cex = 1.75)
+mtext("Euclidean (km)", 2, line = 4, cex = 1.75)
+box(lwd=1.5)
+par(mar = oldmar)
 
 ## -----------------------------------------------------------------------------
 sij <- extract_opportunities(opportunity = mi,
                              distance = distance,
                              check_names = TRUE)
-sij[1:10, 1:10]
+sij[1:5, 1:5]
+
+## -----------------------------------------------------------------------------
+spi <- extract_spatial_information(county, id = "ID")
+
+sp_d <- spi$distance
+
+sp_d[1:5, 1:5]
+
+distance[1:5, 1:5]
+
+## -----------------------------------------------------------------------------
+mean(spi$surface)
 
 ## -----------------------------------------------------------------------------
 res <- run_law_model(law = "NGravExp", 

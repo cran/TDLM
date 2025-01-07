@@ -2,8 +2,33 @@ controls <- function(args = NULL,
                      vectors = NULL,
                      matrices = NULL,
                      type = "vectors_positive") {
+  
+  lstype <- c("vectors_positive",
+              "vectors_positive_integer",
+              "matrices_positive",
+              "vectors_vectors",
+              "matrices_matrices",
+              "vectors_matrices",
+              "vectors_checknames",
+              "matrices_checknames",
+              "vectors_matrices_checknames",
+              "boolean",
+              "character",
+              "character_vector",
+              "numeric_vector",
+              "positive_numeric",
+              "strict_positive_numeric",
+              "positive_integer",
+              "strict_positive_integer",
+              "list")
+  
+  if(!(type %in% lstype)){
+    stop("Control type not defined!", call.=FALSE)
+  }
+  
   # vectors_positive ###########################################################
   if (type == "vectors_positive") {
+    
     nbv <- length(vectors)
     for (k in 1:nbv) {
       vector <- vectors[[k]]
@@ -26,8 +51,9 @@ controls <- function(args = NULL,
         )
       }
       if (sum(vector != 0) == 0) {
-        stop(paste0(namevec, " must contain at least one strictly positive 
-        value."),
+        stop(paste0(namevec, 
+        " must contain at least one strictly positive ", 
+        "value."),
           call. = FALSE
         )
       }
@@ -41,6 +67,7 @@ controls <- function(args = NULL,
 
   # vectors_positive_integer ###################################################
   if (type == "vectors_positive_integer") {
+    
     nbv <- length(vectors)
     for (k in 1:nbv) {
       vector <- vectors[[k]]
@@ -77,14 +104,9 @@ controls <- function(args = NULL,
       }
 
       if (sum(vector != 0) == 0) {
-        stop(paste0(namevec, " must contain at least one strictly positive 
-        value."),
-          call. = FALSE
-        )
-      }
-
-      if (sum(vector < 0) > 0) {
-        stop(paste0(namevec, " must contain only positive values."),
+        stop(paste0(namevec, 
+                    " must contain at least one strictly", 
+                    " positive value."),
           call. = FALSE
         )
       }
@@ -122,8 +144,9 @@ controls <- function(args = NULL,
         )
       }
       if (sum(matrix != 0) == 0) {
-        stop(paste0(namemat, " must contain at least one strictly positive 
-        value."),
+        stop(paste0(namemat, 
+                    " must contain at least one strictly", 
+                    " positive value."),
           call. = FALSE
         )
       }
