@@ -1,7 +1,7 @@
 Package: TDLM
 Type: Package
 Title: Systematic Comparison of Trip Distribution Laws and Models
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: 
     c(person(given = "Maxime",
               family = "Lenormand",
@@ -25,8 +25,8 @@ BugReports: https://github.com/EpiVec/TDLM/issues
 URL: https://epivec.github.io/TDLM/
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2025-01-07 12:45:56 UTC; maxime
+Packaged: 2025-03-06 09:13:32 UTC; maxime
 Author: Maxime Lenormand [aut, cre] (<https://orcid.org/0000-0001-6362-3473>)
 Maintainer: Maxime Lenormand <maxime.lenormand@inrae.fr>
 Repository: CRAN
-Date/Publication: 2025-01-07 13:10:02 UTC
+Date/Publication: 2025-03-06 09:40:02 UTC
