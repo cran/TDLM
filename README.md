@@ -8,17 +8,27 @@
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/TDLM)](https://cran.r-project.org/package=TDLM)
 [![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/TDLM)](https://r-pkg.org:443/pkg/TDLM)  
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.05434/status.svg)](https://doi.org/10.21105/joss.05434)  
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14979715.svg)](https://doi.org/10.5281/zenodo.14979715)
+[![DOI](https://zenodo.org/badge/596025667.svg)](https://doi.org/10.5281/zenodo.14979714)
 <!-- badges: end -->
 
 ## 1 Short description
 
-The main purpose of the `TDLM` package is to provide a rigorous framework for 
+The main purpose of these packages is to provide a rigorous framework for 
 fairly comparing trip distribution laws and models, as described in 
 [Lenormand *et al.* (2016)](https://doi.org/10.1016/j.jtrangeo.2015.12.008). 
-This general framework relies on a two-step approach to generate mobility flows,
-separating the trip distribution law, gravity or intervening opportunities, from
-the modeling approach used to derive flows from this law.
+This general framework relies on a two-step approach to generate mobility flows, 
+separating the trip distribution law, gravity or intervening opportunities, from 
+the modeling approach used to derive flows from this law. 
+
+To make this framework more accessible, we developed both an 
+[R package](https://rtdlm.github.io/TDLM/) 
+and a [Python package](https://rtdlm.github.io/PyTDLM/), which replace the 
+original [Java scripts](https://github.com/maximelenormand/Trip-distribution-laws-and-models) 
+and extend their functionality.  
+
+This implementation provides the framework directly in R, making it easy to 
+integrate  with existing workflows and statistical tools commonly used by the 
+R community.
 
 ## 2 Install
 
